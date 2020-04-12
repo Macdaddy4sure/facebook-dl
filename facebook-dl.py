@@ -39,31 +39,32 @@ def main():
     """
     This function takes no arguments.
     """
-    parser = argparse.ArgumentParser(description="Download videos from facebook from your terminal")
-
-    parser.add_argument('url', action="store")
-    parser.add_argument('resolution', action="store", nargs="?")
-
-    args = parser.parse_args()
-
-    print("Fetching source code...", end="\r", flush=True)
-    request = requests.get(args.url)
-    sys.stdout.write(ERASE_LINE)
-    print(good, "Fetched source code")
-
-    file_url = extract_url(request.text, args.resolution)
-
-    # Generates a random number with will be the file name
-    path = f"{str(random.random())[3:12]}.mp4"
-    print("Downloading video...", end="\r", flush=True)
-    # Downloads the video
-    request = requests.get(file_url)
+    inf = 1
     
-    with open(path, "wb") as f:
-        f.write(request.content)
+    // Macdaddy4sure: Infinite loop as opposed to an if statement calling main()
+    while inf == 1
+        parser = argparse.ArgumentParser(description="Download videos from facebook from your terminal")
 
-    sys.stdout.write(ERASE_LINE)
-    print(f"{good} Video downloaded: {path}")
+        parser.add_argument('url', action="store")
+        parser.add_argument('resolution', action="store", nargs="?")
 
-if __name__ == "__main__":
-    main()
+        args = parser.parse_args()
+
+        print("Fetching source code...", end="\r", flush=True)
+        request = requests.get(args.url)
+        sys.stdout.write(ERASE_LINE)
+        print(good, "Fetched source code")
+
+        file_url = extract_url(request.text, args.resolution)
+
+        # Generates a random number with will be the file name
+        path = f"{str(random.random())[3:12]}.mp4"
+        print("Downloading video...", end="\r", flush=True)
+        # Downloads the video
+        request = requests.get(file_url)
+
+        with open(path, "wb") as f:
+            f.write(request.content)
+
+        sys.stdout.write(ERASE_LINE)
+        print(f"{good} Video downloaded: {path}")
